@@ -1,0 +1,48 @@
+<div class="container-fluid px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+  <div class="card card0 border-0">
+    <div class="row d-flex">
+      <div class="col-lg-6">
+        <div class="pb-5">
+          <div class="row">
+            <div class="col-xs-12">
+              <img src="https://iongroup.com/wp-content/uploads/2022/11/ION-Logo_NZR-560x273-rgb.png" class="logo">
+            </div>
+          </div>
+          <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+            <img src="assets/login-image.png" class="image">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <form class="card2 card border-0 px-4 py-5" (ngSubmit)="onSubmit()" [formGroup]="form">
+          <div class="row px-3 mb-4">
+            <label class="mb-1">
+              <h6 class="mb-0 text-sm">User Name</h6>
+            </label>
+            <input type="text" formControlName="email" name="email" placeholder="Enter a valid user name">
+            <span class="text-danger" *ngIf="form.get('email')?.touched && !form.get('email')?.valid">
+              <ng-container *ngIf="form.controls['email'] && form.controls['email'].errors && form.controls['email'].errors['pattern']">The following characters are not allowed ( , . \ /
+                ^)</ng-container>
+            </span>
+          </div>
+          <div class="row px-3">
+            <label class="mb-1">
+              <h6 class="mb-0 text-sm">Password</h6>
+            </label>
+            <input type="password" formControlName="password" name="password" placeholder="Enter password">
+          </div>
+          <div class="row mb-3 px-3">
+            <button type="submit" class="btn btn-blue text-center" *ngIf="!loading" [disabled]="!form.valid">Login</button>
+            <button class="btn btn-blue" type="button" disabled *ngIf="loading">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+            <button (click)="onCancel()" type="button" class="btn btn-danger text-center ml-3">Cancel</button>
+          </div>
+          <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        </form>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

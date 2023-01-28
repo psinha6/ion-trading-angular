@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar-header">
+    <a routerLink="/" class="navbar-brand">Ion Trading</a>
+  </div>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a href="/dashboard" class="nav-link">Home</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar navbar-right">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer;" [ngClass]="getStyleClass()">{{getStatus()}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar navbar-right"  *ngIf="loggedIn">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a (click)="onLogout()" class="nav-link" style="cursor: pointer;">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,42 @@
+/***** Info Card Component *****/
+/*******************************/
+
+$bunker: #141D1D;
+$pewter: #9da09f;
+$white: #fff;
+
+.container {
+  background: linear-gradient($bunker, $white);
+  box-shadow: 0px 4px 8px 0px #757575;
+  border-radius: 0px;
+  margin: 20px auto;
+}
+
+.info-card-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.info-card-content {
+  background: $white;
+  width: 70%;
+
+  .info-card-bio {
+    width: 40%;
+    padding: 5rem;
+    height: auto;
+    font-family: 'Domine', serif;
+
+    &--title {
+      color: $bunker;
+      font-size: 3.5rem;
+      font-weight: 300;
+    }
+
+    &--copy {
+      color: $pewter;
+      line-height: 2;
+    }
+  }
+}
